@@ -17,6 +17,6 @@ public class DicePair extends BaseDice{
  	}
 	
 	public int result(){
-		return latestRoll.getSnakeEyes();
+		return latestRoll.getSum();
 	}
 }
