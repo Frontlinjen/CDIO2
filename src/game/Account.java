@@ -14,9 +14,13 @@ public class Account {
 
 	public void setGold(int gold) {
 		this.gold = gold;
+		if(getGold()<0)
+		{
+			setGold(0);
+		}
 	}
 	
 	public void addGold(int gold){
-		gold += this.gold;
+		setGold(gold+getGold());
 	}
 }
