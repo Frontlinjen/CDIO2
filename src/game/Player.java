@@ -38,6 +38,8 @@ public class Player {
 	{
 		return dice;
 	}
+	
+	@SuppressWarnings("unused")
 	private Player()
 	{}
 	

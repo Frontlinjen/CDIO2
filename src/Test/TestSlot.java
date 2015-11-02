@@ -1,23 +1,23 @@
-package game;
+package Test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TestBoard extends Board {
+public class TestSlot {
 
 	@Test
-	public void testCreatePlayer() {
+	public void testGetValue() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testEvaluateRoll() {
+	public void testGetName() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testAdvanceGame() {
+	public void testGetDescription() {
 		fail("Not yet implemented");
 	}
 
