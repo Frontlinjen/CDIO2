@@ -111,6 +111,12 @@ public class Board {
 				if(currentPlayer.getPoints() >= 3000){
 					break;
 				}
+/*When tempDice.result is equal to 10, it results in 8 (see tempResult), 
+ * so the player lands on array[8], which gives another turn.
+ */
+				else if(tempDice.result() == 10){
+					continue;
+				}
 				else{
 					swapPlayers();
 				}	
