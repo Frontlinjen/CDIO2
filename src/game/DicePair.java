@@ -8,7 +8,6 @@ public class DicePair extends BaseDice{
 	
 	Random psudoGen = new Random(System.currentTimeMillis());
 
-
 	public void rollDice()
 	{
 		int firstDie = psudoGen.nextInt(6)+1; //Returns a number between 1 and 6 since 6 is exclusive. 
