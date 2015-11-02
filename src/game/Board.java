@@ -124,7 +124,7 @@ public class Board {
 			}
 		}
 		GUI.close();
-		GUI.close();
+
 	}
 	public static void main(String[] args) {
 		Board board = new Board();
