@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-import desktop_fields.Field;
 import desktop_fields.Tax;
 import desktop_resources.GUI;
 
