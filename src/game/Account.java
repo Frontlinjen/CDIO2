@@ -1,12 +1,7 @@
 package game;
 
-public class Account {
-
-	public Account(){
-		gold = 0;
-	}
-	
-	private int gold;
+public class Account {	
+	private int gold = 0;
 
 	public int getGold() {
 		return gold;
