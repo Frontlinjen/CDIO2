@@ -9,13 +9,13 @@ public class PlayerTest {
 
 	@Test
 	public void testPlayer() {
-		Player player = new Player("SD");
+		Player player = new Player("Sara");
 		assertTrue(1000 == player.getPoints());
 	}
 
 	@Test
 	public void testSetPoints() {
-		Player player = new Player("SD");
+		Player player = new Player("Sara");
 		player.setPoints(1500);
 		assertTrue(1500 == player.getPoints());
 
@@ -23,7 +23,7 @@ public class PlayerTest {
 
 	@Test
 	public void testGetDice() {
-		Player player = new Player("SD");
+		Player player = new Player("Sara");
 		BaseDice dice = player.getDice();
 		assertTrue(dice!=null);
 		dice.rollDice();
@@ -33,8 +33,8 @@ public class PlayerTest {
 
 	@Test
 	public void testCorrectPoints(){
-		Player player1 = new Player("SD1");
-		Player player2 = new Player("SD2");
+		Player player1 = new Player("Sara1");
+		Player player2 = new Player("Sara2");
 		player1.setPoints(650);
 		assertFalse(650 == player2.getPoints());
 
