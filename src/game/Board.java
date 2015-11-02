@@ -19,7 +19,7 @@ public class Board {
 	{
 		return currentPlayer;
 	}
-	private void createPlayer(String name)
+	public void createPlayer(String name)
 	{
 		Player newPlayer = new Player(name);
 		players.add(newPlayer);
@@ -28,18 +28,18 @@ public class Board {
 	}
 	
 	private void setupPlayers(){
-		String user1 = GUI.getUserString("Velkommen!\nIndtast navn på spiller 1:");
+		String user1 = GUI.getUserString("Velkommen!\nIndtast navn pï¿½ spiller 1:");
 		createPlayer(user1);
-		String user2 = GUI.getUserString("Indtast navn på spiller 2:");
+		String user2 = GUI.getUserString("Indtast navn pï¿½ spiller 2:");
 		//Player2 cannot be called the same as player1
 		while(user2.equals(user1))
 		{
-			user2 = GUI.getUserString("Navnet kan ikke være det samme som spiller 1. Prøv igen!");
+			user2 = GUI.getUserString("Navnet kan ikke vï¿½re det samme som spiller 1. Prï¿½v igen!");
 		}
 		createPlayer(user2);
 	}
 	
-	public void evaluateRoll(DiceResult roll, DiceResult prevRoll)
+	public void evaluateRoll(int val)
 	{
 		
 	}
@@ -87,6 +87,15 @@ public class Board {
 		}
 		GUI.create(fields);
 	}
+	public void AdvanceGame(BaseDice dice)
+	{
+		int tempResult = dice.result()-2;
+		GUI.removeAllCars(currentPlayer.getName());
+		GUI.setCar(tempResult+1, currentPlayer.getName());
+		currentPlayer.addPoints(slot[tempResult].getValue());
+		fields[tempResult].displayOnCenter();
+		
+	}
 	public void startGame(){
 		initializeBoard();
 		setupPlayers();
@@ -99,11 +108,7 @@ public class Board {
 				GUI.showMessage("Det er: " + currentPlayer.getName()+ "'s tur!");
 				BaseDice tempDice = currentPlayer.getDice();
 				tempDice.rollDice();
-				int tempResult = tempDice.result()-2;
-				GUI.removeAllCars(currentPlayer.getName());
-				GUI.setCar(tempResult+1, currentPlayer.getName());
-				currentPlayer.addPoints(slot[tempResult].getValue());
-				fields[tempResult].displayOnCenter();
+				AdvanceGame(tempDice);
 				if(currentPlayer.getPoints() >= 3000){
 					break;
 				}
