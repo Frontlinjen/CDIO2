@@ -10,9 +10,6 @@ public class DiceResult
 		eyes[0] = first;
 		eyes[1] = second;
 	}
-	public int getSnakeEyes(){
-		return eyes[0] + eyes[1];
-	}
 	public int getFirstDice()
 	{
 		return eyes[0];
