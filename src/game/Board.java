@@ -27,13 +27,13 @@ public class Board {
 	}
 	
 	private void setupPlayers(){
-		String user1 = GUI.getUserString("Velkommen!\nIndtast navn p� spiller 1:");
+		String user1 = GUI.getUserString(Translator.getString("ENTERNAME1"));
 		createPlayer(user1);
-		String user2 = GUI.getUserString("Indtast navn p� spiller 2:");
+		String user2 = GUI.getUserString(Translator.getString("ENTERNAME2"));
 		//Player2 cannot be called the same as player1
 		while(user2.equals(user1))
 		{
-			user2 = GUI.getUserString("Navnet kan ikke v�re det samme som spiller 1. Pr�v igen!");
+			user2 = GUI.getUserString(Translator.getString("NAMEERROR"));
 		}
 		createPlayer(user2);
 	}
@@ -103,7 +103,7 @@ public class Board {
 			currentPlayer = players.get(0);
 			
 			while(true){
-				GUI.showMessage("Det er: " + currentPlayer.getName()+ "'s tur!");
+				GUI.showMessage(Translator.getString("NEXTTURN") + " " + currentPlayer.getName());
 				BaseDice tempDice = currentPlayer.getDice();
 				tempDice.rollDice();
 				AdvanceGame(tempDice);
@@ -121,7 +121,7 @@ public class Board {
 				}	
 				
 			}
-			if(GUI.getUserLeftButtonPressed(currentPlayer.getName() + " har vundet.", "Retry", "Stop Game")) {
+			if(GUI.getUserLeftButtonPressed(currentPlayer.getName() + " " + Translator.getString("ENDGAMEBUTTON1"), Translator.getString("ENDGAMEBUTTON2"), Translator.getString("ENDGAMEBUTTON3"))) {
 				for(Player player : players) {
 					player.setPoints(1000);
 					GUI.removeAllCars(player.getName());
