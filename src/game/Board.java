@@ -103,7 +103,9 @@ public class Board {
 			currentPlayer = players.get(0);
 			
 			while(true){
-				GUI.showMessage(Translator.getString("NEXTTURN") + " " + currentPlayer.getName());
+
+				GUI.getUserButtonPressed(Translator.getString("NEXTTURN") + " " + currentPlayer.getName(), Translator.getString("ROLL"));
+
 				BaseDice tempDice = currentPlayer.getDice();
 				tempDice.rollDice();
 				AdvanceGame(tempDice);

@@ -11,6 +11,7 @@ public class PlayerTest {
 	public void testPlayer() {
 		Player player = new Player("Sara");
 		assertTrue(1000 == player.getPoints());
+		assertTrue("Sara"==player.getName());
 	}
 
 	@Test
@@ -18,7 +19,9 @@ public class PlayerTest {
 		Player player = new Player("Sara");
 		player.setPoints(1500);
 		assertTrue(1500 == player.getPoints());
-
+		//Tester at brugerens acc ikke går i negativ
+		player.setPoints(-500);
+		assertFalse(player.getPoints()==-500);
 	}
 
 	@Test
