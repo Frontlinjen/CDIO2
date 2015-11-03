@@ -103,7 +103,7 @@ public class Board {
 			currentPlayer = players.get(0);
 			
 			while(true){
-				GUI.showMessage("Det er: " + currentPlayer.getName()+ "'s tur!");
+				GUI.getUserButtonPressed("Det er: " + currentPlayer.getName()+ "'s tur!", "Roll");
 				BaseDice tempDice = currentPlayer.getDice();
 				tempDice.rollDice();
 				AdvanceGame(tempDice);
