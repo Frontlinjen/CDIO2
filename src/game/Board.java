@@ -25,19 +25,23 @@ public class Board {
 		GUI.addPlayer(name, 1000);
 		desktop_board.Board.getInstance().updatePlayers();
 	}
-	
+	boolean verifyName(String s)
+	{
+		//Checks if the string is empty, and also checks if it only conists of whitespaces
+		return (!s.isEmpty() && s.matches("^\\s*$"));
+	}
 	private void setupPlayers(){
 		String user1 = GUI.getUserString(Translator.getString("ENTERNAME1"));
-		while(user1.isEmpty())
+		while(verifyName(user1))
 		{
 			user1 = GUI.getUserString(Translator.getString("EMPTYNAMEERROR"));
 		}
 		createPlayer(user1);
 		String user2 = GUI.getUserString(Translator.getString("ENTERNAME2"));
 		//Player2 cannot be called the same as player1
-		while(user2.isEmpty() || user2.equals(user1))
+		while(verifyName(user2) || user2.equals(user1))
 		{
-			if(user2.isEmpty())
+			if(verifyName(user2))
 			{
 				user2 = GUI.getUserString(Translator.getString("EMPTYNAMEERROR"));
 			}
