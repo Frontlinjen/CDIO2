@@ -28,12 +28,23 @@ public class Board {
 	
 	private void setupPlayers(){
 		String user1 = GUI.getUserString(Translator.getString("ENTERNAME1"));
+		while(user1.isEmpty())
+		{
+			user1 = GUI.getUserString(Translator.getString("EMPTYNAMEERROR"));
+		}
 		createPlayer(user1);
 		String user2 = GUI.getUserString(Translator.getString("ENTERNAME2"));
 		//Player2 cannot be called the same as player1
-		while(user2.equals(user1))
+		while(user2.isEmpty() || user2.equals(user1))
 		{
-			user2 = GUI.getUserString(Translator.getString("NAMEERROR"));
+			if(user2.isEmpty())
+			{
+				user2 = GUI.getUserString(Translator.getString("EMPTYNAMEERROR"));
+			}
+			else
+			{
+				user2 = GUI.getUserString(Translator.getString("NAMEERROR"));
+			}
 		}
 		createPlayer(user2);
 	}
@@ -61,6 +72,7 @@ public class Board {
 	{
 		slot = new Slot[] {new Slot(1,250), new Slot(2,-100), new Slot(3,100), new Slot(4,-20), new Slot(5,180), new Slot(6,0), new Slot(7,-70), new Slot(8,60), new Slot(9, -80), new Slot(10,-50), new Slot(11,650)};
 		fields = new Tax[11];
+		
 		for (int i = 0; i < fields.length; i++) {
 			Color col;
 			if (i%2 == 0)
@@ -112,9 +124,9 @@ public class Board {
 				if(currentPlayer.getPoints() >= 3000){
 					break;
 				}
-/*When tempDice.result is equal to 10, it results in 8 (see tempResult), 
- * so the player lands on array[8], which gives another turn.
- */
+				/*When tempDice.result is equal to 10, it results in 8 (see tempResult), 
+				 * so the player lands on array[8], which gives another turn.
+				 */
 				else if(tempDice.result() == 10){
 					continue;
 				}
