@@ -3,6 +3,7 @@ package game;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import desktop_fields.Tax;
 import desktop_resources.GUI;
@@ -27,21 +28,30 @@ public class Board {
 	}
 	boolean verifyName(String s)
 	{
-		//Checks if the string is empty, and also checks if it only conists of whitespaces
-		return (!s.isEmpty() && s.matches("^\\s*$"));
+		if(s.isEmpty())
+		{
+			return false;
+		}
+		
+			//Checks if the string contains a whitespace character
+			Pattern pattern = Pattern.compile("\\s");
+			java.util.regex.Matcher m = pattern.matcher(s);
+			
+			return (!m.find());
+		
 	}
 	private void setupPlayers(){
 		String user1 = GUI.getUserString(Translator.getString("ENTERNAME1"));
-		while(verifyName(user1))
+		while(!verifyName(user1))
 		{
 			user1 = GUI.getUserString(Translator.getString("EMPTYNAMEERROR"));
 		}
 		createPlayer(user1);
 		String user2 = GUI.getUserString(Translator.getString("ENTERNAME2"));
 		//Player2 cannot be called the same as player1
-		while(verifyName(user2) || user2.equals(user1))
+		while(!verifyName(user2) || user2.equals(user1))
 		{
-			if(verifyName(user2))
+			if(!verifyName(user2))
 			{
 				user2 = GUI.getUserString(Translator.getString("EMPTYNAMEERROR"));
 			}
