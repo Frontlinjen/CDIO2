@@ -110,10 +110,6 @@ public class Board {
 	private void AdvanceGame(BaseDice dice)
 	{
 		int tempResult = dice.result()-2;
-		if(tempResult >= slot.length)
-		{
-			
-		}
 		GUI.removeAllCars(currentPlayer.getName());
 		GUI.setCar(tempResult+1, currentPlayer.getName());
 		currentPlayer.addPoints(slot[tempResult].getValue());
