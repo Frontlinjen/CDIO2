@@ -142,6 +142,7 @@ public class Board {
 				 * so the player lands on array[8], which gives another turn.
 				 */
 				else if(tempDice.result() == 10){
+					GUI.getUserButtonPressed(currentPlayer.getName() + " " + Translator.getString("EXTRATURN"), Translator.getString("OK"));
 					continue;
 				}
 				else{
