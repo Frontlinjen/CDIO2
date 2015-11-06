@@ -20,6 +20,11 @@ public class Slot {
 	public String getDescription() {
 		return Translator.getString("SLOTDSC" + id);
 	}
+
+	@Override
+	public String toString() {
+		return "Slot [value=" + value + ", id=" + id + "]";
+	}
 	
 	
 }
