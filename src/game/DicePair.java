@@ -18,4 +18,11 @@ public class DicePair extends BaseDice{
 	public int result(){
 		return latestRoll.getSum();
 	}
+
+	@Override
+	public String toString() {
+		return "DicePair [getFirstDie " + latestRoll.getFirstDice() + ", getSecondDie " + latestRoll.getSecondDice() + ", getSum " + latestRoll.getSum() + "]";
+	}
+
+	
 }
