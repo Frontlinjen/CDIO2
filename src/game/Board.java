@@ -163,6 +163,10 @@ public class Board {
 		Board board = new Board();
 		board.startGame();
 	}
+	@Override
+	public String toString() {
+		return "Board []";
+	}
 	
 
 }
