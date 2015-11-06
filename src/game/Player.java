@@ -3,13 +3,14 @@ package game;
 import desktop_resources.GUI;
 
 public class Player {
+
 	private String name;
 	/**
 	 * Each player has their own set of dice which keeps track of their rolls. 
 	 */
 	private BaseDice dice = new DicePair();
 	private Account account = new Account();
-	
+
 	public Player(String s)
 	{
 		name = s;
@@ -38,11 +39,15 @@ public class Player {
 	{
 		return dice;
 	}
-	
+
 	@SuppressWarnings("unused")
 	private Player()
 	{}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Playername : " + getName() + " " + account.getGold() + "gold";
+	}
+
 }
  
