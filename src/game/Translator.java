@@ -15,6 +15,10 @@ public class Translator {
 		}
 		return strings.getString(keyword);
 	}
+	@Override
+	public String toString() {
+		return "Current locale: " + strings.getLocale() + " on the following file: " + strings.getBaseBundleName() + " where " + strings.keySet().size() + "keys are contained";
+	}
 	public static void setLocale(Locale l)
 	{	
 		strings = ResourceBundle.getBundle("MessageBundle", l);
