@@ -23,7 +23,7 @@ public class Slot {
 
 	@Override
 	public String toString() {
-		return "Slot [value=" + value + ", id=" + id + "]";
+		return "Slot [value=" + value + ", id=" + id + ", title" + getName() + "]";
 	}
 	
 	
