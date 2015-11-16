@@ -9,14 +9,14 @@ public class PlayerTest {
 
 	@Test
 	public void testPlayer() {
-		Player player = new Player("Sara");
+		Player player = new Player("Mikkel");
 		assertTrue(1000 == player.getPoints());
 		assertTrue("Sara"==player.getName());
 	}
 
 	@Test
 	public void testSetPoints() {
-		Player player = new Player("Sara");
+		Player player = new Player("Mikkel");
 		player.setPoints(1500);
 		assertTrue(1500 == player.getPoints());
 		//Tester at brugerens acc ikke går i negativ
@@ -36,8 +36,8 @@ public class PlayerTest {
 
 	@Test
 	public void testCorrectPoints(){
-		Player player1 = new Player("Sara1");
-		Player player2 = new Player("Sara2");
+		Player player1 = new Player("Mikkel");
+		Player player2 = new Player("Thomas");
 		player1.setPoints(650);
 		assertFalse(650 == player2.getPoints());
 
